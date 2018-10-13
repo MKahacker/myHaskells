@@ -3,6 +3,16 @@
 raise:: (Num b, Num t, Enum t) => b -> t -> b
 raise x y = foldr (*) 1 [x | i <- [1..y]] 
 
+--Makes list of objects(x) based on size (n)
+makeList :: (Num t, Enum t) => a -> t -> [a]
+makeList x n = [x | i <-[1..n]]
+
+--Increments value at a specific index in a list
+incrementIndex :: (Eq t, Num t, Num a) => [a] -> t -> [a]
+incrementIndex [] i = []
+incrementIndex (x:xs) 0 = (x+1:xs)
+incrementIndex (x:xs) i = (x: incrementIndex xs (i-1))
+
 -----------------------------------------------End section---------------------------------------------------------
 
 
