@@ -29,6 +29,10 @@ distance (x,y) (x',y') =  sqrt(((x' - x)^2) + ((y' - y)^2))
 centripial:: (Fractional a) => a -> a -> a
 centripial v r = (v^2)/r
 
+--Magnitude of a vector
+magnitude:: (Floating a) => a -> a -> a
+magnitude x y = sqrt((x^2) + (y^2))
+
 -----------------------------------------------End section---------------------------------------------------------
 
 
