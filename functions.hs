@@ -1,5 +1,7 @@
+module Functions where
+
 --------------------------------------------Static Variables for E&M-----------------------------------------------
---mu static for Biot-Savart Law 
+--mu static for Biot-Savart Law
 mu :: Floating a => a
 mu = 4*pi/(10^7)
 
@@ -8,7 +10,7 @@ mu = 4*pi/(10^7)
 --------------------------------------------Helper functions-------------------------------------------------------
 --Replicates the raise function (^) created because of dist functions below
 raise:: (Num b, Num t, Enum t) => b -> t -> b
-raise x y = foldr (*) 1 [x | i <- [1..y]] 
+raise x y = foldr (*) 1 [x | i <- [1..y]]
 
 --Makes list of objects(x) based on size (n)
 makeList :: (Num t, Enum t) => a -> t -> [a]
@@ -62,14 +64,14 @@ dCos theta
 
 --Sine function that takes degrees
 dSin:: (Floating a, Eq a) => a -> a
-dSin theta 
+dSin theta
     | (theta == 0 || theta == 180) = 0
     | otherwise = sin (fromDegree theta)
 
 -----------------------------------------------End section---------------------------------------------------------
 
 
----------------------------------------------Probability-------------------------------------------------------- 
+---------------------------------------------Probability--------------------------------------------------------
 --Factorial function
 fact :: (Eq a, Num a) => a -> a
 fact 0 = 1
@@ -77,10 +79,10 @@ fact n = n*(fact (n-1))
 
 --Gamma function
 gamma:: (Eq a, Num a, Ord a) => a -> a
-gamma x  
+gamma x
       |(x < 0) = undefined
       |(x == 0) = 1
-      |(x == 1) = 1 
+      |(x == 1) = 1
       |(x > 1) = (x-1)*(gamma (x-1))
 
 --Combination function relies on factorial
