@@ -103,4 +103,8 @@ binomial x n p = (choose x n)*(raise p x)*(raise (1-p) (n-x))
 possion:: (Fractional a, Floating a, Eq a, Enum a) => a -> a -> a
 possion x l = (raise l x)/((raise (exp 1) l)*(fact x))
 
+
+--Encoding strings 
+encode (x:[]) c = [(c, x)]
+encode (a:b:cs) c = if a==b then encode(b:cs) (c+1) else (c, a):(encode(b:cs) 1)
 -----------------------------------------------End section---------------------------------------------------------
