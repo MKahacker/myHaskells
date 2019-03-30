@@ -110,3 +110,10 @@ possion x l = (raise l x)/((raise (exp 1) l)*(fact x))
 encode (x:[]) c = [(c, x)]
 encode (a:b:cs) c = if a==b then encode(b:cs) (c+1) else (c, a):(encode(b:cs) 1)
 -----------------------------------------------End section---------------------------------------------------------
+-----------------------------------------------Graphing------------------------------------------------------------
+genGraph a 0 0 _ = ""
+genGraph a 1 1 _ = [a]
+genGraph a l 0 ow = "\n" ++ (genGraph a (l-1) ow ow)
+genGraph a l w ow = [a] ++ (genGraph a l (w-1) ow)
+graph a l w = putStr ((genGraph a l w w) ++ "\n")
+-----------------------------------------------End section---------------------------------------------------------
